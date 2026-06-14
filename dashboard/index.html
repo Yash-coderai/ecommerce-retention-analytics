@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-Commerce Churn Analytics Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#overview" aria-label="E-Commerce Churn Analytics home">
+        <span class="brand-mark">EC</span>
+        <span class="brand-copy">
+          <strong>E-Commerce Churn</strong>
+          <span>Retention analytics dashboard</span>
+        </span>
+      </a>
+      
+      <nav class="nav" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#results">Results</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#visuals">Visuals</a>
+      </nav>
+
+      <a class="button button-primary nav-cta" href="#visuals">Open gallery</a>
+    </div>
+  </header>
+
+  <main class="shell page">
+    <section id="overview" class="hero-band hero-band-light card-content">
+      <div class="hero-copy">
+        <span class="eyebrow">Customer retention</span>
+        <h1>Customer churn, presented as a clear decision page.</h1>
+        <p>
+          This dashboard summarizes the preprocessing pipeline, model comparison, and the
+          generated diagnostics from Random Forest and LightGBM.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#results">View results</a>
+          <a class="button button-secondary" href="#workflow">See workflow</a>
+        </div>
+
+        <div class="hero-stats">
+          <article>
+            <strong>5,630</strong>
+            <span>customer records</span>
+          </article>
+          <article>
+            <strong>19</strong>
+            <span>input features</span>
+          </article>
+          <article>
+            <strong>0.971</strong>
+            <span>best ROC-AUC</span>
+          </article>
+        </div>
+      </div>
+
+      <aside class="hero-panel card-soft-tinted">
+        <span class="panel-label">Best model</span>
+        <h2 class="panel-value">Random Forest</h2>
+        <p>
+          It delivered the strongest ranking performance while keeping precision and recall
+          balanced for retention targeting.
+        </p>
+        <div class="mini-metrics">
+          <div><span>Accuracy</span><strong>0.930</strong></div>
+          <div><span>Precision</span><strong>0.803</strong></div>
+          <div><span>Recall</span><strong>0.774</strong></div>
+          <div><span>F1 Score</span><strong>0.788</strong></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="results" class="section-stack">
+      <div class="section-heading">
+        <span class="eyebrow">Model comparison</span>
+        <h2>Performance summary</h2>
+        <p>Random Forest leads the ranking metrics, while LightGBM stays close behind on recall.</p>
+      </div>
+
+      <div class="grid two-up">
+        <article class="card-content">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Random Forest</th>
+                  <th>LightGBM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Accuracy</td><td>0.930</td><td>0.927</td></tr>
+                <tr><td>Precision</td><td>0.803</td><td>0.770</td></tr>
+                <tr><td>Recall</td><td>0.774</td><td>0.811</td></tr>
+                <tr><td>F1 Score</td><td>0.788</td><td>0.790</td></tr>
+                <tr><td>ROC-AUC</td><td>0.971</td><td>0.963</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="card-soft-tinted">
+          <div class="section-heading compact">
+            <span class="eyebrow">Business readout</span>
+            <h2>What matters most</h2>
+          </div>
+
+          <ul class="insight-list">
+            <li>Tenure is one of the strongest indicators of churn risk.</li>
+            <li>CashbackAmount and WarehouseToHome carry meaningful retention signal.</li>
+            <li>SMOTE was applied only on the training split to avoid leakage.</li>
+            <li>The models can be used to prioritize customers for further retention analysis.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="workflow" class="section-stack">
+      <div class="section-heading">
+        <span class="eyebrow">Project workflow</span>
+        <h2>How the analysis is structured</h2>
+        <p>Cleaning, balancing, training, evaluation, and visual reporting are separated clearly.</p>
+      </div>
+
+      <div class="grid three-up">
+        <article class="card-content">
+          <h3>Data cleaning</h3>
+          <p>
+            Identifiers are removed, categorical values are standardized, and missing values are
+            handled before any model training begins.
+          </p>
+        </article>
+        <article class="card-content">
+          <h3>Feature engineering</h3>
+          <p>
+            Skewed variables are transformed, categories are one-hot encoded, and train/test
+            features are aligned for consistent inference.
+          </p>
+        </article>
+        <article class="card-content">
+          <h3>Model evaluation</h3>
+          <p>
+            Random Forest and LightGBM are compared using accuracy, precision, recall, F1, and
+            ROC-AUC with matching visual outputs.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="visuals" class="section-stack">
+      <div class="section-heading">
+        <span class="eyebrow">Visual gallery</span>
+        <h2>Generated project visuals</h2>
+        <p>These images are loaded directly from the repository’s `visualizations/` folder.</p>
+      </div>
+
+      <div class="gallery">
+        <figure class="card-content visual-card">
+          <img src="../visualizations/01_log_transformations.png" alt="Log transformation analysis" />
+          <figcaption>Log Transformation Analysis</figcaption>
+        </figure>
+        <figure class="card-content visual-card">
+          <img src="../visualizations/02_smote_effect.png" alt="SMOTE class balancing effect" />
+          <figcaption>SMOTE Class Balancing Effect</figcaption>
+        </figure>
+        <figure class="card-content visual-card">
+          <img src="../visualizations/03_feature_importance.png" alt="Feature importance comparison" />
+          <figcaption>Feature Importance Comparison</figcaption>
+        </figure>
+        <figure class="card-content visual-card">
+          <img src="../visualizations/04_roc_auc_curve.png" alt="ROC-AUC curve comparison" />
+          <figcaption>ROC-AUC Curve Comparison</figcaption>
+        </figure>
+        <figure class="card-content visual-card">
+          <img src="../visualizations/05_precision_recall_curve.png" alt="Precision-recall curve" />
+          <figcaption>Precision-Recall Curve</figcaption>
+        </figure>
+        <figure class="card-content visual-card">
+          <img src="../visualizations/06_metrics_comparison.png" alt="Metrics comparison chart" />
+          <figcaption>Metrics Comparison</figcaption>
+        </figure>
+        <figure class="card-content visual-card wide">
+          <img src="../visualizations/07_confusion_matrices.png" alt="Confusion matrices" />
+          <figcaption>Confusion Matrices</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="footer-card card-content footer-band">
+      <div>
+        <span class="eyebrow">How to use</span>
+        <h2>Open this page locally</h2>
+        <p>
+          Open `dashboard/index.html` in a browser or serve the repository locally if you want a
+          predictable path setup for the charts.
+        </p>
+      </div>
+      <a class="button button-secondary" href="#overview">Back to top</a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
