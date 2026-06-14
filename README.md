@@ -134,22 +134,24 @@ All figures are available in the `visualizations/` folder.
 ## Repository Structure
 
 ```text
-E-Commerce-Customer-Churn-Prediction/
-│
-├── ecommerce_customer_churn_dataset.xlsx
-├── data_cleaning.py
+ecommerce-retention-analytics/
+├── dashboard/
+│   ├── index.html
+│   ├── script.js
+│   └── styles.css
 ├── churn_analysis.py
-├── requirements.txt
+├── data_cleaning.py
+├── ecommerce_customer_churn_dataset.xlsx
 ├── README.md
-│
+├── requirements.txt
 └── visualizations/
-    ├── 01_log_transformations.png
-    ├── 02_smote_effect.png
-    ├── 03_feature_importance.png
-    ├── 04_roc_auc_curve.png
-    ├── 05_precision_recall_curve.png
-    ├── 06_metrics_comparison.png
-    └── 07_confusion_matrices.png
+│   ├── 01_log_transformations.png
+│   ├── 02_smote_effect.png
+│   ├── 03_feature_importance.png
+│   ├── 04_roc_auc_curve.png
+│   ├── 05_precision_recall_curve.png
+│   ├── 06_metrics_comparison.png
+│   └── 07_confusion_matrices.png
 ```
 
 ---
